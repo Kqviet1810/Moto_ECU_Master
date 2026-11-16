@@ -1,25 +1,31 @@
-// PowerMonitor.h - đọc điện áp pin / nguồn xe + trạng thái sạc, hiển thị lên TFT
-// Header-only, dùng với Pins.h. Chưa biên dịch thử trên phần cứng thật - cần hiệu chỉnh ADC.
+// PowerMonitor.h - đọc điện áp pin / nguồn xe + trạng thái sạc (BQ24074) để hiển thị lên TFT.
+// Header-only, dùng với Pins.h. CHƯA biên dịch/thử trên phần cứng thật - cần hiệu chỉnh ADC thực tế.
 #pragma once
 #include <Arduino.h>
 #include "Pins.h"
 
+enum PowerSource { SRC_BATTERY, SRC_CHARGING, SRC_FULL };
+
 struct PowerStatus {
-  float vbat;        // V
-  float vcar;        // V (0 nếu không cắm xe)
-  int   percent;     // 0..100, ước tính theo điện áp
-  bool  usbOrCar;    // có nguồn vào mạch sạc (PGOOD)
-  bool  charging;    // đang sạc
-  bool  full;        // có nguồn vào và đã ngừng sạc
-  bool  carPresent;  // vcar > 9V
+  float vbat;         // V
+  float vcar;         // V (≈0 nếu không cắm xe)
+  int   percent;      // 0..100, ước tính theo điện áp (đo khi sạc chỉ tham khảo)
+  bool  inputPresent; // có nguồn vào mạch sạc (PGOOD): USB hoặc 12V xe
+  bool  charging;
+  bool  full;         // có nguồn vào và đã ngừng sạc
+  bool  carPresent;   // vcar > 9V
+  bool  lowBattery;   // <= 3.40V khi chạy pin
+  bool  shutdownNow;  // <= 3.20V khi chạy pin -> nên deep-sleep
+  PowerSource source;
 };
 
 class PowerMonitor {
  public:
   void begin() {
     analogReadResolution(12);
-    analogSetAttenuation(ADC_11db);
-    pinMode(PIN_CHG_N, INPUT);      // pull-up ngoài 100k lên 3V3
+    analogSetPinAttenuation(PIN_VBAT_SENSE, ADC_11db);
+    analogSetPinAttenuation(PIN_VCAR_SENSE, ADC_11db);
+    pinMode(PIN_CHG_N, INPUT);     // đã có pull-up 100k ngoài
     pinMode(PIN_PGOOD_N, INPUT);
   }
 
@@ -27,11 +33,15 @@ class PowerMonitor {
     PowerStatus s;
     s.vbat = readMilliVolts(PIN_VBAT_SENSE) * VBAT_DIV_RATIO / 1000.0f;
     s.vcar = readMilliVolts(PIN_VCAR_SENSE) * VCAR_DIV_RATIO / 1000.0f;
-    s.carPresent = s.vcar > 9.0f;
-    s.usbOrCar = (digitalRead(PIN_PGOOD_N) == LOW);
-    s.charging = s.usbOrCar && (digitalRead(PIN_CHG_N) == LOW);
-    s.full = s.usbOrCar && !s.charging;
-    s.percent = percentFromVoltage(s.vbat, s.charging);
+    s.carPresent   = s.vcar > 9.0f;
+    s.inputPresent = (digitalRead(PIN_PGOOD_N) == LOW);
+    s.charging     = s.inputPresent && (digitalRead(PIN_CHG_N) == LOW);
+    s.full         = s.inputPresent && !s.charging;
+    s.percent      = percentFromVoltage(s.vbat, s.charging);
+    bool onBat     = !s.inputPresent;
+    s.lowBattery   = onBat && s.vbat <= 3.40f;
+    s.shutdownNow  = onBat && s.vbat <= 3.20f;
+    s.source = s.charging ? SRC_CHARGING : (s.full ? SRC_FULL : SRC_BATTERY);
     return s;
   }
 
@@ -43,8 +53,7 @@ class PowerMonitor {
     return acc / 16.0f;
   }
 
-  // Đường cong xả Li-Po xấp xỉ (không tải nhẹ). Khi đang sạc điện áp bị đẩy lên
-  // nên % chỉ mang tính tham khảo -> trừ 0.1V cho hợp lý.
+  // Đường cong xả Li-Po xấp xỉ. Khi đang sạc điện áp bị đẩy lên -> trừ 0.1V.
   static int percentFromVoltage(float v, bool charging) {
     if (charging) v -= 0.10f;
     static const float lut[][2] = {
