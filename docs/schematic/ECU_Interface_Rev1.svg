@@ -1,0 +1,460 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2300" height="2560" viewBox="0 0 2300 2560" font-family="DejaVu Sans, Arial, sans-serif"><rect width="2300" height="2560" fill="#fff"/>
+<rect x="20" y="100" width="1500" height="500" rx="12" fill="#fff6f6" stroke="#c0504d" stroke-width="1.8" stroke-dasharray="7 5"/>
+<text x="34" y="125" font-size="17" fill="#c0504d" text-anchor="start" font-weight="700"><tspan x="34" dy="0">A   Nguồn cấp ECU có công tắc  (GPIO40 bật/tắt, đo dòng bằng INA219)</tspan></text>
+<rect x="20" y="620" width="1500" height="520" rx="12" fill="#f7f2fb" stroke="#8e44ad" stroke-width="1.8" stroke-dasharray="7 5"/>
+<text x="34" y="645" font-size="17" fill="#8e44ad" text-anchor="start" font-weight="700"><tspan x="34" dy="0">B   BOOT/MODE và RESET tới ECU  (open-drain, kéo xuống GND khi GPIO = cao)</tspan></text>
+<rect x="20" y="1160" width="1500" height="510" rx="12" fill="#f2f8fe" stroke="#1f77b4" stroke-width="1.8" stroke-dasharray="7 5"/>
+<text x="34" y="1185" font-size="17" fill="#1f77b4" text-anchor="start" font-weight="700"><tspan x="34" dy="0">C   UART TTL tới ECU  (dịch mức 3.3V ↔ VREF bằng BSS138; GPIO48 = TX, GPIO3 = RX)</tspan></text>
+<rect x="1560" y="100" width="720" height="1300" rx="12" fill="#fafafa" stroke="#555" stroke-width="1.8" stroke-dasharray="7 5"/>
+<text x="1574" y="125" font-size="17" fill="#555" text-anchor="start" font-weight="700"><tspan x="1574" dy="0">CN1  –  đầu nối ra xe / ECU  (2×6, 2.54 mm)</tspan></text>
+<rect x="20" y="1700" width="2260" height="830" rx="12" fill="#fafafa" stroke="#555" stroke-width="1.8" stroke-dasharray="7 5"/>
+<text x="34" y="1725" font-size="17" fill="#555" text-anchor="start" font-weight="700"><tspan x="34" dy="0">TỔNG HỢP LINH KIỆN THÊM CHO KHỐI ECU</tspan></text>
+<text x="40" y="44" font-size="28" fill="#111" text-anchor="start" font-weight="700"><tspan x="40" dy="0">GIAO DIỆN ĐỌC/GHI ECU – SƠ ĐỒ ĐẤU NỐI CHI TIẾT</tspan></text>
+<polyline points="40,76 76,76" fill="none" stroke="#d62728" stroke-width="5" stroke-linejoin="round"/>
+<text x="84" y="81" font-size="14" fill="#222" text-anchor="start"><tspan x="84" dy="0">12V</tspan></text>
+<polyline points="148,76 184,76" fill="none" stroke="#1f77b4" stroke-width="5" stroke-linejoin="round"/>
+<text x="192" y="81" font-size="14" fill="#222" text-anchor="start"><tspan x="192" dy="0">3V3</tspan></text>
+<polyline points="256,76 292,76" fill="none" stroke="#e67e00" stroke-width="5" stroke-linejoin="round"/>
+<text x="300" y="81" font-size="14" fill="#222" text-anchor="start"><tspan x="300" dy="0">5V_S</tspan></text>
+<polyline points="372,76 408,76" fill="none" stroke="#0a8f8f" stroke-width="5" stroke-linejoin="round"/>
+<text x="416" y="81" font-size="14" fill="#222" text-anchor="start"><tspan x="416" dy="0">tín hiệu ESP32 (GPIO)</tspan></text>
+<polyline points="624,76 660,76" fill="none" stroke="#8e44ad" stroke-width="5" stroke-linejoin="round"/>
+<text x="668" y="81" font-size="14" fill="#222" text-anchor="start"><tspan x="668" dy="0">ra/vào ECU (CN1)</tspan></text>
+<polyline points="836,76 872,76" fill="none" stroke="#444444" stroke-width="5" stroke-linejoin="round"/>
+<text x="880" y="81" font-size="14" fill="#222" text-anchor="start"><tspan x="880" dy="0">GND</tspan></text>
+<rect x="40" y="200" width="120" height="50" rx="8" fill="#fdecea" stroke="#d62728" stroke-width="1.6"/>
+<text x="100.0" y="223.25" font-size="14" fill="#111" text-anchor="middle" font-weight="700"><tspan x="100.0" dy="0">12V_F</tspan></text>
+<text x="100.0" y="238.75" font-size="10.5" fill="#444" text-anchor="middle"><tspan x="100.0" dy="0">sau F1(3A)+TVS D4</tspan></text>
+<polyline points="160,225 205,225" fill="none" stroke="#d62728" stroke-width="3.2" stroke-linejoin="round"/>
+<rect x="205" y="205" width="110" height="40" rx="8" fill="#fff" stroke="#d62728" stroke-width="1.6"/>
+<text x="260.0" y="223.0" font-size="13" fill="#111" text-anchor="middle" font-weight="700"><tspan x="260.0" dy="0">D10 SS510</tspan></text>
+<text x="260.0" y="238.0" font-size="10" fill="#444" text-anchor="middle"><tspan x="260.0" dy="0">chống đảo cực</tspan></text>
+<polyline points="315,225 375,225" fill="none" stroke="#d62728" stroke-width="3.2" stroke-linejoin="round"/>
+<rect x="375" y="180" width="140" height="90" rx="8" fill="#fff4e5" stroke="#d62728" stroke-width="1.6"/>
+<text x="445.0" y="222.75" font-size="14" fill="#111" text-anchor="middle" font-weight="700"><tspan x="445.0" dy="0">Q9  AO4407A</tspan></text>
+<text x="445.0" y="239.25" font-size="11.5" fill="#444" text-anchor="middle"><tspan x="445.0" dy="0">P-MOS SO-8</tspan></text>
+<text x="380" y="198" font-size="10.5" fill="#222" text-anchor="start" font-weight="700"><tspan x="380" dy="0">S (1-3)</tspan></text>
+<text x="510" y="198" font-size="10.5" fill="#222" text-anchor="end" font-weight="700"><tspan x="510" dy="0">D (5-8)</tspan></text>
+<text x="446" y="266" font-size="10.5" fill="#222" text-anchor="middle" font-weight="700"><tspan x="446" dy="0">G (4)</tspan></text>
+<polyline points="515,225 600,225" fill="none" stroke="#d62728" stroke-width="3.2" stroke-linejoin="round"/>
+<circle cx="555" cy="225" r="5.5" fill="#d62728"/>
+<polygon points="535,177 573.8,177 583.8,188 573.8,199 535,199" fill="#fff" stroke="#8e44ad" stroke-width="2"/>
+<text x="543" y="193" font-size="12.5" fill="#8e44ad" text-anchor="start" font-weight="700"><tspan x="543" dy="0">IN+</tspan></text>
+<rect x="600" y="208" width="100" height="34" rx="8" fill="#fff" stroke="#d62728" stroke-width="1.6"/>
+<text x="650.0" y="222.75" font-size="12" fill="#111" text-anchor="middle" font-weight="700"><tspan x="650.0" dy="0">R43 0.05Ω 1W</tspan></text>
+<text x="650.0" y="237.25" font-size="9.5" fill="#444" text-anchor="middle"><tspan x="650.0" dy="0">shunt</tspan></text>
+<polyline points="700,225 770,225" fill="none" stroke="#d62728" stroke-width="3.2" stroke-linejoin="round"/>
+<circle cx="735" cy="225" r="5.5" fill="#d62728"/>
+<polygon points="715,177 753.8,177 763.8,188 753.8,199 715,199" fill="#fff" stroke="#8e44ad" stroke-width="2"/>
+<text x="723" y="193" font-size="12.5" fill="#8e44ad" text-anchor="start" font-weight="700"><tspan x="723" dy="0">IN−</tspan></text>
+<rect x="770" y="208" width="90" height="34" rx="8" fill="#fff" stroke="#d62728" stroke-width="1.6"/>
+<text x="815.0" y="229.25" font-size="12.5" fill="#111" text-anchor="middle" font-weight="700"><tspan x="815.0" dy="0">F4  PTC 2A</tspan></text>
+<polyline points="860,225 1000,225" fill="none" stroke="#d62728" stroke-width="3.2" stroke-linejoin="round"/>
+<circle cx="930" cy="225" r="5.5" fill="#d62728"/>
+<text x="936" y="213" font-size="12" fill="#d62728" text-anchor="start" font-weight="700"><tspan x="936" dy="0">12V_ECU</tspan></text>
+<circle cx="990" cy="225" r="5.5" fill="#d62728"/>
+<polygon points="1010,214 1147.6,214 1157.6,225 1147.6,236 1010,236" fill="#fff" stroke="#8e44ad" stroke-width="2"/>
+<text x="1018" y="230" font-size="12.5" fill="#8e44ad" text-anchor="start" font-weight="700"><tspan x="1018" dy="0">→ CN1.7  12V_ECU</tspan></text>
+<polyline points="930,225 930,300" fill="none" stroke="#d62728" stroke-width="3.2" stroke-linejoin="round"/>
+<rect x="905" y="300" width="50" height="46" rx="8" fill="#fff" stroke="#d62728" stroke-width="1.6"/>
+<text x="930.0" y="320.75" font-size="12" fill="#111" text-anchor="middle" font-weight="700"><tspan x="930.0" dy="0">R44</tspan></text>
+<text x="930.0" y="335.25" font-size="9.5" fill="#444" text-anchor="middle"><tspan x="930.0" dy="0">10k xả</tspan></text>
+<polyline points="930,346 930,375" fill="none" stroke="#222" stroke-width="2.2" stroke-linejoin="round"/>
+<g stroke="#222" stroke-width="2.2"><line x1="930" y1="375" x2="930" y2="383"/><line x1="918" y1="383" x2="942" y2="383"/><line x1="922" y1="388" x2="938" y2="388"/><line x1="926" y1="393" x2="934" y2="393"/></g>
+<polyline points="990,225 990,300" fill="none" stroke="#d62728" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="5 3"/>
+<rect x="965" y="300" width="60" height="46" rx="8" fill="#fff" stroke="#d62728" stroke-width="1.6"/>
+<text x="995.0" y="320.5" font-size="11" fill="#111" text-anchor="middle" font-weight="700"><tspan x="995.0" dy="0">D11</tspan></text>
+<text x="995.0" y="334.5" font-size="9" fill="#444" text-anchor="middle"><tspan x="995.0" dy="0">TVS tuỳ chọn</tspan></text>
+<polyline points="995,346 995,375" fill="none" stroke="#222" stroke-width="2.2" stroke-linejoin="round"/>
+<g stroke="#222" stroke-width="2.2"><line x1="995" y1="375" x2="995" y2="383"/><line x1="983" y1="383" x2="1007" y2="383"/><line x1="987" y1="388" x2="1003" y2="388"/><line x1="991" y1="393" x2="999" y2="393"/></g>
+<circle cx="340" cy="225" r="5.5" fill="#d62728"/>
+<polyline points="340,225 340,415" fill="none" stroke="#d62728" stroke-width="3.2" stroke-linejoin="round"/>
+<polyline points="446,270 446,415" fill="none" stroke="#d62728" stroke-width="3.2" stroke-linejoin="round"/>
+<polyline points="340,375 352,375" fill="none" stroke="#d62728" stroke-width="3.2" stroke-linejoin="round"/>
+<rect x="352" y="358" width="82" height="34" rx="8" fill="#fff" stroke="#d62728" stroke-width="1.6"/>
+<text x="393.0" y="378.75" font-size="11.5" fill="#111" text-anchor="middle" font-weight="700"><tspan x="393.0" dy="0">R40 100k</tspan></text>
+<polyline points="434,375 446,375" fill="none" stroke="#d62728" stroke-width="3.2" stroke-linejoin="round"/>
+<circle cx="446" cy="375" r="5.5" fill="#d62728"/>
+<polyline points="340,415 352,415" fill="none" stroke="#d62728" stroke-width="2.4" stroke-linejoin="round"/>
+<rect x="352" y="398" width="82" height="34" rx="8" fill="#fff" stroke="#d62728" stroke-width="1.6"/>
+<text x="393.0" y="418.75" font-size="11.5" fill="#111" text-anchor="middle" font-weight="700"><tspan x="393.0" dy="0">C30 47nF</tspan></text>
+<polyline points="434,415 446,415" fill="none" stroke="#d62728" stroke-width="2.4" stroke-linejoin="round"/>
+<text x="60" y="330" font-size="11.5" fill="#555" text-anchor="start"><tspan x="60" dy="0">Mặc định TẮT khi khởi động:</tspan><tspan x="60" dy="14.5">R42 kéo gate Q10 xuống GND → Q10</tspan><tspan x="60" dy="14.5">tắt → R40 giữ Vgs = 0 → Q9 tắt.</tspan><tspan x="60" dy="14.5">GPIO40 = cao → Q10 mở → gate Q9</tspan><tspan x="60" dy="14.5">xuống ≈1V → Vgs ≈ −11V → Q9 mở.</tspan><tspan x="60" dy="14.5">C30 làm gate mở chậm (mở mềm).</tspan></text>
+<polyline points="446,375 500,375" fill="none" stroke="#d62728" stroke-width="3.2" stroke-linejoin="round"/>
+<rect x="500" y="358" width="76" height="34" rx="8" fill="#fff" stroke="#d62728" stroke-width="1.6"/>
+<text x="538.0" y="378.75" font-size="11.5" fill="#111" text-anchor="middle" font-weight="700"><tspan x="538.0" dy="0">R41 10k</tspan></text>
+<polyline points="576,375 640,375 640,420" fill="none" stroke="#d62728" stroke-width="3.2" stroke-linejoin="round"/>
+<rect x="595" y="420" width="90" height="64" rx="8" fill="#fff" stroke="#444444" stroke-width="1.6"/>
+<text x="640.0" y="449.5" font-size="12" fill="#111" text-anchor="middle" font-weight="700"><tspan x="640.0" dy="0">Q10 2N7002</tspan></text>
+<text x="640.0" y="464.5" font-size="10" fill="#444" text-anchor="middle"><tspan x="640.0" dy="0">D↑  S↓  G←</tspan></text>
+<polyline points="640,484 640,515" fill="none" stroke="#222" stroke-width="2.2" stroke-linejoin="round"/>
+<g stroke="#222" stroke-width="2.2"><line x1="640" y1="515" x2="640" y2="523"/><line x1="628" y1="523" x2="652" y2="523"/><line x1="632" y1="528" x2="648" y2="528"/><line x1="636" y1="533" x2="644" y2="533"/></g>
+<polygon points="380,444 532.8,444 542.8,455 532.8,466 380,466" fill="#fff" stroke="#0a8f8f" stroke-width="2"/>
+<text x="388" y="460" font-size="12.5" fill="#0a8f8f" text-anchor="start" font-weight="700"><tspan x="388" dy="0">GPIO40  ECU_PWR_EN</tspan></text>
+<polyline points="542.8,455 565,455 565,452 595,452" fill="none" stroke="#0a8f8f" stroke-width="2.6" stroke-linejoin="round"/>
+<circle cx="565" cy="455" r="5.5" fill="#0a8f8f"/>
+<polyline points="565,455 565,505" fill="none" stroke="#0a8f8f" stroke-width="2.4" stroke-linejoin="round"/>
+<rect x="540" y="505" width="50" height="34" rx="8" fill="#fff" stroke="#0a8f8f" stroke-width="1.6"/>
+<text x="565.0" y="519.25" font-size="11" fill="#111" text-anchor="middle" font-weight="700"><tspan x="565.0" dy="0">R42</tspan></text>
+<text x="565.0" y="533.75" font-size="9.5" fill="#444" text-anchor="middle"><tspan x="565.0" dy="0">100k</tspan></text>
+<polyline points="565,539 565,552" fill="none" stroke="#222" stroke-width="2.2" stroke-linejoin="round"/>
+<g stroke="#222" stroke-width="2.2"><line x1="565" y1="552" x2="565" y2="560"/><line x1="553" y1="560" x2="577" y2="560"/><line x1="557" y1="565" x2="573" y2="565"/><line x1="561" y1="570" x2="569" y2="570"/></g>
+<rect x="1090" y="290" width="370" height="300" rx="8" fill="#f6f9fd" stroke="#8e44ad" stroke-width="1.6"/>
+<text x="1275" y="314" font-size="14" fill="#111" text-anchor="middle" font-weight="700"><tspan x="1275" dy="0">U20  INA219  (I2C 0x40)</tspan></text>
+<text x="1275" y="330" font-size="11" fill="#444" text-anchor="middle"><tspan x="1275" dy="0">chip SOT-23-8 hoặc module GY-219</tspan></text>
+<polygon points="1100,257 1138.8,257 1148.8,268 1138.8,279 1100,279" fill="#fff" stroke="#8e44ad" stroke-width="2"/>
+<text x="1108" y="273" font-size="12.5" fill="#8e44ad" text-anchor="start" font-weight="700"><tspan x="1108" dy="0">IN+</tspan></text>
+<polygon points="1180,257 1218.8,257 1228.8,268 1218.8,279 1180,279" fill="#fff" stroke="#8e44ad" stroke-width="2"/>
+<text x="1188" y="273" font-size="12.5" fill="#8e44ad" text-anchor="start" font-weight="700"><tspan x="1188" dy="0">IN−</tspan></text>
+<text x="1260" y="273" font-size="11" fill="#555" text-anchor="start"><tspan x="1260" dy="0">← nối tới nhãn IN+/IN− ở mạch chính</tspan></text>
+<text x="1105" y="358" font-size="12.5" fill="#111" text-anchor="start" font-weight="700"><tspan x="1105" dy="0">IN+</tspan></text>
+<text x="1170" y="358" font-size="11.5" fill="#444" text-anchor="start"><tspan x="1170" dy="0">trước shunt R43</tspan></text>
+<text x="1105" y="385" font-size="12.5" fill="#111" text-anchor="start" font-weight="700"><tspan x="1105" dy="0">IN−</tspan></text>
+<text x="1170" y="385" font-size="11.5" fill="#444" text-anchor="start"><tspan x="1170" dy="0">sau shunt R43</tspan></text>
+<text x="1105" y="412" font-size="12.5" fill="#111" text-anchor="start" font-weight="700"><tspan x="1105" dy="0">VS</tspan></text>
+<text x="1170" y="412" font-size="11.5" fill="#444" text-anchor="start"><tspan x="1170" dy="0">← 3V3</tspan></text>
+<text x="1105" y="439" font-size="12.5" fill="#111" text-anchor="start" font-weight="700"><tspan x="1105" dy="0">GND</tspan></text>
+<text x="1170" y="439" font-size="11.5" fill="#444" text-anchor="start"><tspan x="1170" dy="0">← GND</tspan></text>
+<text x="1105" y="466" font-size="12.5" fill="#111" text-anchor="start" font-weight="700"><tspan x="1105" dy="0">SDA</tspan></text>
+<text x="1170" y="466" font-size="11.5" fill="#444" text-anchor="start"><tspan x="1170" dy="0">→ GPIO6 (chung AT24C02)</tspan></text>
+<text x="1105" y="493" font-size="12.5" fill="#111" text-anchor="start" font-weight="700"><tspan x="1105" dy="0">SCL</tspan></text>
+<text x="1170" y="493" font-size="11.5" fill="#444" text-anchor="start"><tspan x="1170" dy="0">→ GPIO7</tspan></text>
+<text x="1105" y="520" font-size="12.5" fill="#111" text-anchor="start" font-weight="700"><tspan x="1105" dy="0">A0, A1</tspan></text>
+<text x="1170" y="520" font-size="11.5" fill="#444" text-anchor="start"><tspan x="1170" dy="0">→ GND  (địa chỉ 0x40)</tspan></text>
+<text x="1105" y="552" font-size="11" fill="#555" text-anchor="start"><tspan x="1105" dy="0">Dòng ECU = V(shunt)/0.05Ω;  đo áp bus tới 26V</tspan></text>
+<polygon points="40,819 177.6,819 187.6,830 177.6,841 40,841" fill="#fff" stroke="#0a8f8f" stroke-width="2"/>
+<text x="48" y="835" font-size="12.5" fill="#0a8f8f" text-anchor="start" font-weight="700"><tspan x="48" dy="0">GPIO41  ECU_BOOT</tspan></text>
+<polyline points="187.6,830 400,830" fill="none" stroke="#0a8f8f" stroke-width="2.8" stroke-linejoin="round"/>
+<circle cx="340" cy="830" r="5.5" fill="#0a8f8f"/>
+<polyline points="340,830 340,880" fill="none" stroke="#0a8f8f" stroke-width="2.4" stroke-linejoin="round"/>
+<rect x="315" y="880" width="50" height="34" rx="8" fill="#fff" stroke="#0a8f8f" stroke-width="1.6"/>
+<text x="340.0" y="894.25" font-size="11" fill="#111" text-anchor="middle" font-weight="700"><tspan x="340.0" dy="0">R45</tspan></text>
+<text x="340.0" y="908.75" font-size="9.5" fill="#444" text-anchor="middle"><tspan x="340.0" dy="0">100k</tspan></text>
+<polyline points="340,914 340,930" fill="none" stroke="#222" stroke-width="2.2" stroke-linejoin="round"/>
+<g stroke="#222" stroke-width="2.2"><line x1="340" y1="930" x2="340" y2="938"/><line x1="328" y1="938" x2="352" y2="938"/><line x1="332" y1="943" x2="348" y2="943"/><line x1="336" y1="948" x2="344" y2="948"/></g>
+<rect x="400" y="800" width="120" height="68" rx="8" fill="#fff" stroke="#444444" stroke-width="1.6"/>
+<text x="460.0" y="831.75" font-size="12.5" fill="#111" text-anchor="middle" font-weight="700"><tspan x="460.0" dy="0">Q11  2N7002</tspan></text>
+<text x="460.0" y="846.75" font-size="10" fill="#444" text-anchor="middle"><tspan x="460.0" dy="0">G←  D→  S↓</tspan></text>
+<polyline points="460,868 460,892" fill="none" stroke="#222" stroke-width="2.2" stroke-linejoin="round"/>
+<g stroke="#222" stroke-width="2.2"><line x1="460" y1="892" x2="460" y2="900"/><line x1="448" y1="900" x2="472" y2="900"/><line x1="452" y1="905" x2="468" y2="905"/><line x1="456" y1="910" x2="464" y2="910"/></g>
+<polyline points="520,830 600,830" fill="none" stroke="#8e44ad" stroke-width="3.2" stroke-linejoin="round"/>
+<rect x="600" y="813" width="100" height="34" rx="8" fill="#fff" stroke="#8e44ad" stroke-width="1.6"/>
+<text x="650.0" y="827.5" font-size="11.5" fill="#111" text-anchor="middle" font-weight="700"><tspan x="650.0" dy="0">R46 100Ω</tspan></text>
+<text x="650.0" y="842.0" font-size="9.5" fill="#444" text-anchor="middle"><tspan x="650.0" dy="0">nối tiếp</tspan></text>
+<polyline points="700,830 780,830" fill="none" stroke="#8e44ad" stroke-width="3.2" stroke-linejoin="round"/>
+<circle cx="740" cy="830" r="5.5" fill="#8e44ad"/>
+<polygon points="780,819 925.2,819 935.2,830 925.2,841 780,841" fill="#fff" stroke="#8e44ad" stroke-width="2"/>
+<text x="788" y="835" font-size="12.5" fill="#8e44ad" text-anchor="start" font-weight="700"><tspan x="788" dy="0">→ CN1.9  ECU_BOOT</tspan></text>
+<polyline points="740,830 740,785" fill="none" stroke="#8e44ad" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="5 3"/>
+<rect x="690" y="745" width="100" height="40" rx="8" fill="#fff" stroke="#8e44ad" stroke-width="1.6" stroke-dasharray="5 3"/>
+<text x="740.0" y="762.25" font-size="11" fill="#111" text-anchor="middle" font-weight="700"><tspan x="740.0" dy="0">R49 4.7k</tspan></text>
+<text x="740.0" y="776.75" font-size="9.5" fill="#444" text-anchor="middle"><tspan x="740.0" dy="0">kéo lên (DNP)</tspan></text>
+<polyline points="740,745 740,730" fill="none" stroke="#8e44ad" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="5 3"/>
+<rect x="670" y="700" width="140" height="30" rx="8" fill="#faf6fd" stroke="#8e44ad" stroke-width="1.6"/>
+<text x="740.0" y="712.25" font-size="10.5" fill="#111" text-anchor="middle" font-weight="700"><tspan x="740.0" dy="0">JP2</tspan></text>
+<text x="740.0" y="726.25" font-size="9" fill="#444" text-anchor="middle"><tspan x="740.0" dy="0">chọn rail kéo lên</tspan></text>
+<polygon points="40,999 170.0,999 180.0,1010 170.0,1021 40,1021" fill="#fff" stroke="#0a8f8f" stroke-width="2"/>
+<text x="48" y="1015" font-size="12.5" fill="#0a8f8f" text-anchor="start" font-weight="700"><tspan x="48" dy="0">GPIO42  ECU_RST</tspan></text>
+<polyline points="180.0,1010 400,1010" fill="none" stroke="#0a8f8f" stroke-width="2.8" stroke-linejoin="round"/>
+<circle cx="340" cy="1010" r="5.5" fill="#0a8f8f"/>
+<polyline points="340,1010 340,1060" fill="none" stroke="#0a8f8f" stroke-width="2.4" stroke-linejoin="round"/>
+<rect x="315" y="1060" width="50" height="34" rx="8" fill="#fff" stroke="#0a8f8f" stroke-width="1.6"/>
+<text x="340.0" y="1074.25" font-size="11" fill="#111" text-anchor="middle" font-weight="700"><tspan x="340.0" dy="0">R47</tspan></text>
+<text x="340.0" y="1088.75" font-size="9.5" fill="#444" text-anchor="middle"><tspan x="340.0" dy="0">100k</tspan></text>
+<polyline points="340,1094 340,1110" fill="none" stroke="#222" stroke-width="2.2" stroke-linejoin="round"/>
+<g stroke="#222" stroke-width="2.2"><line x1="340" y1="1110" x2="340" y2="1118"/><line x1="328" y1="1118" x2="352" y2="1118"/><line x1="332" y1="1123" x2="348" y2="1123"/><line x1="336" y1="1128" x2="344" y2="1128"/></g>
+<rect x="400" y="980" width="120" height="68" rx="8" fill="#fff" stroke="#444444" stroke-width="1.6"/>
+<text x="460.0" y="1011.75" font-size="12.5" fill="#111" text-anchor="middle" font-weight="700"><tspan x="460.0" dy="0">Q12  2N7002</tspan></text>
+<text x="460.0" y="1026.75" font-size="10" fill="#444" text-anchor="middle"><tspan x="460.0" dy="0">G←  D→  S↓</tspan></text>
+<polyline points="460,1048 460,1072" fill="none" stroke="#222" stroke-width="2.2" stroke-linejoin="round"/>
+<g stroke="#222" stroke-width="2.2"><line x1="460" y1="1072" x2="460" y2="1080"/><line x1="448" y1="1080" x2="472" y2="1080"/><line x1="452" y1="1085" x2="468" y2="1085"/><line x1="456" y1="1090" x2="464" y2="1090"/></g>
+<polyline points="520,1010 600,1010" fill="none" stroke="#8e44ad" stroke-width="3.2" stroke-linejoin="round"/>
+<rect x="600" y="993" width="100" height="34" rx="8" fill="#fff" stroke="#8e44ad" stroke-width="1.6"/>
+<text x="650.0" y="1007.5" font-size="11.5" fill="#111" text-anchor="middle" font-weight="700"><tspan x="650.0" dy="0">R48 100Ω</tspan></text>
+<text x="650.0" y="1022.0" font-size="9.5" fill="#444" text-anchor="middle"><tspan x="650.0" dy="0">nối tiếp</tspan></text>
+<polyline points="700,1010 780,1010" fill="none" stroke="#8e44ad" stroke-width="3.2" stroke-linejoin="round"/>
+<circle cx="740" cy="1010" r="5.5" fill="#8e44ad"/>
+<polygon points="780,999 925.2,999 935.2,1010 925.2,1021 780,1021" fill="#fff" stroke="#8e44ad" stroke-width="2"/>
+<text x="788" y="1015" font-size="12.5" fill="#8e44ad" text-anchor="start" font-weight="700"><tspan x="788" dy="0">→ CN1.10  ECU_RST</tspan></text>
+<polyline points="740,1010 740,965" fill="none" stroke="#8e44ad" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="5 3"/>
+<rect x="690" y="925" width="100" height="40" rx="8" fill="#fff" stroke="#8e44ad" stroke-width="1.6" stroke-dasharray="5 3"/>
+<text x="740.0" y="942.25" font-size="11" fill="#111" text-anchor="middle" font-weight="700"><tspan x="740.0" dy="0">R50 4.7k</tspan></text>
+<text x="740.0" y="956.75" font-size="9.5" fill="#444" text-anchor="middle"><tspan x="740.0" dy="0">kéo lên (DNP)</tspan></text>
+<polyline points="740,925 740,910" fill="none" stroke="#8e44ad" stroke-width="2.2" stroke-linejoin="round" stroke-dasharray="5 3"/>
+<rect x="670" y="880" width="140" height="30" rx="8" fill="#faf6fd" stroke="#8e44ad" stroke-width="1.6"/>
+<text x="740.0" y="892.25" font-size="10.5" fill="#111" text-anchor="middle" font-weight="700"><tspan x="740.0" dy="0">JP3</tspan></text>
+<text x="740.0" y="906.25" font-size="9" fill="#444" text-anchor="middle"><tspan x="740.0" dy="0">chọn rail kéo lên</tspan></text>
+<text x="1090" y="700" font-size="12" fill="#555" text-anchor="start"><tspan x="1090" dy="0">Cách dùng:</tspan><tspan x="1090" dy="15">GPIO = cao → 2N7002 mở → kéo chân ECU</tspan><tspan x="1090" dy="15">xuống 0V.  GPIO = thấp → thả nổi.</tspan><tspan x="1090" dy="15">Nếu ECU cần mức CAO để vào bootloader:</tspan><tspan x="1090" dy="15">hàn R49/R50 (4.7k) và chọn rail kéo lên</tspan><tspan x="1090" dy="15">(3V3 / 5V_S / 12V_ECU) bằng JP2/JP3.</tspan><tspan x="1090" dy="15">Mặc định KHÔNG hàn R49/R50.</tspan></text>
+<rect x="40" y="1205" width="230" height="62" rx="8" fill="#faf6fd" stroke="#e67e00" stroke-width="1.6"/>
+<text x="155.0" y="1233.75" font-size="13" fill="#111" text-anchor="middle" font-weight="700"><tspan x="155.0" dy="0">JP1  chọn VREF</tspan></text>
+<text x="155.0" y="1249.25" font-size="10.5" fill="#444" text-anchor="middle"><tspan x="155.0" dy="0">hàn 3V3  hoặc  5V_S (mặc định)</tspan></text>
+<text x="290" y="1240" font-size="12" fill="#e67e00" text-anchor="start" font-weight="700"><tspan x="290" dy="0">→ net VREF (cấp cho phía ECU)</tspan></text>
+<polygon points="40,1389 162.39999999999998,1389 172.39999999999998,1400 162.39999999999998,1411 40,1411" fill="#fff" stroke="#0a8f8f" stroke-width="2"/>
+<text x="48" y="1405" font-size="12.5" fill="#0a8f8f" text-anchor="start" font-weight="700"><tspan x="48" dy="0">GPIO48  ECU_TX</tspan></text>
+<polyline points="172.39999999999998,1400 430,1400" fill="none" stroke="#0a8f8f" stroke-width="2.8" stroke-linejoin="round"/>
+<circle cx="340" cy="1400" r="5.5" fill="#0a8f8f"/>
+<polyline points="340,1400 340,1355" fill="none" stroke="#1f77b4" stroke-width="2.4" stroke-linejoin="round"/>
+<rect x="315" y="1305" width="50" height="50" rx="8" fill="#fff" stroke="#1f77b4" stroke-width="1.6"/>
+<text x="340.0" y="1327.25" font-size="11" fill="#111" text-anchor="middle" font-weight="700"><tspan x="340.0" dy="0">R51</tspan></text>
+<text x="340.0" y="1341.75" font-size="9.5" fill="#444" text-anchor="middle"><tspan x="340.0" dy="0">10k</tspan></text>
+<text x="345" y="1298" font-size="11.5" fill="#1f77b4" text-anchor="middle" font-weight="700"><tspan x="345" dy="0">3V3</tspan></text>
+<rect x="430" y="1364" width="150" height="74" rx="8" fill="#fff" stroke="#444444" stroke-width="1.6"/>
+<text x="505.0" y="1385.75" font-size="12.5" fill="#111" text-anchor="middle" font-weight="700"><tspan x="505.0" dy="0">Q13  BSS138</tspan></text>
+<text x="505.0" y="1400.75" font-size="10" fill="#444" text-anchor="middle"><tspan x="505.0" dy="0">S ← phía ESP</tspan><tspan x="505.0" dy="13">D → phía ECU</tspan><tspan x="505.0" dy="13">G ← 3V3</tspan></text>
+<polyline points="580,1400 720,1400" fill="none" stroke="#8e44ad" stroke-width="3.2" stroke-linejoin="round"/>
+<circle cx="640" cy="1400" r="5.5" fill="#8e44ad"/>
+<polyline points="640,1400 640,1355" fill="none" stroke="#e67e00" stroke-width="2.4" stroke-linejoin="round"/>
+<rect x="615" y="1305" width="50" height="50" rx="8" fill="#fff" stroke="#e67e00" stroke-width="1.6"/>
+<text x="640.0" y="1327.25" font-size="11" fill="#111" text-anchor="middle" font-weight="700"><tspan x="640.0" dy="0">R52</tspan></text>
+<text x="640.0" y="1341.75" font-size="9.5" fill="#444" text-anchor="middle"><tspan x="640.0" dy="0">10k</tspan></text>
+<text x="640" y="1298" font-size="11.5" fill="#e67e00" text-anchor="middle" font-weight="700"><tspan x="640" dy="0">VREF</tspan></text>
+<rect x="720" y="1383" width="100" height="34" rx="8" fill="#fff" stroke="#8e44ad" stroke-width="1.6"/>
+<text x="770.0" y="1397.5" font-size="11.5" fill="#111" text-anchor="middle" font-weight="700"><tspan x="770.0" dy="0">R55 100Ω</tspan></text>
+<text x="770.0" y="1412.0" font-size="9.5" fill="#444" text-anchor="middle"><tspan x="770.0" dy="0">nối tiếp</tspan></text>
+<polyline points="820,1400 880,1400" fill="none" stroke="#8e44ad" stroke-width="3.2" stroke-linejoin="round"/>
+<polygon points="880,1389 1055.6,1389 1065.6,1400 1055.6,1411 880,1411" fill="#fff" stroke="#8e44ad" stroke-width="2"/>
+<text x="888" y="1405" font-size="12.5" fill="#8e44ad" text-anchor="start" font-weight="700"><tspan x="888" dy="0">→ CN1.11  ECU_UART_TX</tspan></text>
+<polygon points="40,1549 200.4,1549 210.4,1560 200.4,1571 40,1571" fill="#fff" stroke="#8e44ad" stroke-width="2"/>
+<text x="48" y="1565" font-size="12.5" fill="#8e44ad" text-anchor="start" font-weight="700"><tspan x="48" dy="0">CN1.12  ECU_UART_RX</tspan></text>
+<polyline points="210.4,1560 300,1560" fill="none" stroke="#8e44ad" stroke-width="3.2" stroke-linejoin="round"/>
+<rect x="300" y="1543" width="100" height="34" rx="8" fill="#fff" stroke="#8e44ad" stroke-width="1.6"/>
+<text x="350.0" y="1557.5" font-size="11.5" fill="#111" text-anchor="middle" font-weight="700"><tspan x="350.0" dy="0">R56 100Ω</tspan></text>
+<text x="350.0" y="1572.0" font-size="9.5" fill="#444" text-anchor="middle"><tspan x="350.0" dy="0">nối tiếp</tspan></text>
+<polyline points="400,1560 550,1560" fill="none" stroke="#8e44ad" stroke-width="3.2" stroke-linejoin="round"/>
+<circle cx="470" cy="1560" r="5.5" fill="#8e44ad"/>
+<polyline points="470,1560 470,1515" fill="none" stroke="#e67e00" stroke-width="2.4" stroke-linejoin="round"/>
+<rect x="445" y="1465" width="50" height="50" rx="8" fill="#fff" stroke="#e67e00" stroke-width="1.6"/>
+<text x="470.0" y="1487.25" font-size="11" fill="#111" text-anchor="middle" font-weight="700"><tspan x="470.0" dy="0">R54</tspan></text>
+<text x="470.0" y="1501.75" font-size="9.5" fill="#444" text-anchor="middle"><tspan x="470.0" dy="0">10k</tspan></text>
+<text x="470" y="1458" font-size="11.5" fill="#e67e00" text-anchor="middle" font-weight="700"><tspan x="470" dy="0">VREF</tspan></text>
+<rect x="550" y="1524" width="150" height="74" rx="8" fill="#fff" stroke="#444444" stroke-width="1.6"/>
+<text x="625.0" y="1545.75" font-size="12.5" fill="#111" text-anchor="middle" font-weight="700"><tspan x="625.0" dy="0">Q14  BSS138</tspan></text>
+<text x="625.0" y="1560.75" font-size="10" fill="#444" text-anchor="middle"><tspan x="625.0" dy="0">D ← phía ECU</tspan><tspan x="625.0" dy="13">S → phía ESP</tspan><tspan x="625.0" dy="13">G ← 3V3</tspan></text>
+<polyline points="700,1560 860,1560" fill="none" stroke="#0a8f8f" stroke-width="2.8" stroke-linejoin="round"/>
+<circle cx="770" cy="1560" r="5.5" fill="#0a8f8f"/>
+<polyline points="770,1560 770,1600" fill="none" stroke="#1f77b4" stroke-width="2.4" stroke-linejoin="round"/>
+<rect x="735" y="1600" width="70" height="28" rx="8" fill="#fff" stroke="#1f77b4" stroke-width="1.6"/>
+<text x="770.0" y="1617.25" font-size="10.5" fill="#111" text-anchor="middle" font-weight="700"><tspan x="770.0" dy="0">R53 10k</tspan></text>
+<text x="770" y="1648" font-size="11.5" fill="#1f77b4" text-anchor="middle" font-weight="700"><tspan x="770" dy="0">3V3</tspan></text>
+<rect x="860" y="1543" width="100" height="34" rx="8" fill="#fff" stroke="#0a8f8f" stroke-width="1.6"/>
+<text x="910.0" y="1557.5" font-size="11.5" fill="#111" text-anchor="middle" font-weight="700"><tspan x="910.0" dy="0">R57 10k</tspan></text>
+<text x="910.0" y="1572.0" font-size="9.5" fill="#444" text-anchor="middle"><tspan x="910.0" dy="0">nối tiếp</tspan></text>
+<polyline points="960,1560 1010,1560" fill="none" stroke="#0a8f8f" stroke-width="3.2" stroke-linejoin="round"/>
+<polygon points="1010,1549 1124.8,1549 1134.8,1560 1124.8,1571 1010,1571" fill="#fff" stroke="#0a8f8f" stroke-width="2"/>
+<text x="1018" y="1565" font-size="12.5" fill="#0a8f8f" text-anchor="start" font-weight="700"><tspan x="1018" dy="0">GPIO3  ECU_RX</tspan></text>
+<text x="1010" y="1270" font-size="12" fill="#555" text-anchor="start"><tspan x="1010" dy="0">Chiều truyền:</tspan><tspan x="1010" dy="15">ESP32 TX (GPIO48, 3.3V) → ECU RX (mức VREF)</tspan><tspan x="1010" dy="15">ECU TX (mức VREF) → ESP32 RX (GPIO3, 3.3V)</tspan><tspan x="1010" dy="15">Tốc độ bootloader thường 9600–115200 baud,</tspan><tspan x="1010" dy="15">mạch BSS138 này đủ dùng.</tspan><tspan x="1010" dy="15">GPIO3 là chân strapping nhưng với eFuse mặc định</tspan><tspan x="1010" dy="15">không ảnh hưởng; R57 10k bảo vệ.</tspan></text>
+<text x="1580" y="150" font-size="12.5" fill="#444" text-anchor="start"><tspan x="1580" dy="0">Cột trái = chân lẻ, cột phải = chân chẵn (nhìn từ phía chân cắm):</tspan></text>
+<rect x="1580" y="175" width="330" height="54" rx="8" fill="#fdecea" stroke="#d62728" stroke-width="1.8"/>
+<circle cx="1607" cy="202" r="17" fill="#fff" stroke="#d62728" stroke-width="2"/>
+<text x="1607" y="207" font-size="14" fill="#d62728" text-anchor="middle" font-weight="700"><tspan x="1607" dy="0">1</tspan></text>
+<text x="1634" y="208" font-size="14" fill="#111" text-anchor="start" font-weight="700"><tspan x="1634" dy="0">+12V vào</tspan></text>
+<rect x="1925" y="175" width="330" height="54" rx="8" fill="#eeeeee" stroke="#444444" stroke-width="1.8"/>
+<circle cx="1952" cy="202" r="17" fill="#fff" stroke="#444444" stroke-width="2"/>
+<text x="1952" y="207" font-size="14" fill="#444444" text-anchor="middle" font-weight="700"><tspan x="1952" dy="0">2</tspan></text>
+<text x="1979" y="208" font-size="14" fill="#111" text-anchor="start" font-weight="700"><tspan x="1979" dy="0">GND</tspan></text>
+<rect x="1580" y="241" width="330" height="54" rx="8" fill="#fff4e5" stroke="#e67e00" stroke-width="1.8"/>
+<circle cx="1607" cy="268" r="17" fill="#fff" stroke="#e67e00" stroke-width="2"/>
+<text x="1607" y="273" font-size="14" fill="#e67e00" text-anchor="middle" font-weight="700"><tspan x="1607" dy="0">3</tspan></text>
+<text x="1634" y="274" font-size="14" fill="#111" text-anchor="start" font-weight="700"><tspan x="1634" dy="0">K_LINE</tspan></text>
+<rect x="1925" y="241" width="330" height="54" rx="8" fill="#eeeeee" stroke="#444444" stroke-width="1.8"/>
+<circle cx="1952" cy="268" r="17" fill="#fff" stroke="#444444" stroke-width="2"/>
+<text x="1952" y="273" font-size="14" fill="#444444" text-anchor="middle" font-weight="700"><tspan x="1952" dy="0">4</tspan></text>
+<text x="1979" y="274" font-size="14" fill="#111" text-anchor="start" font-weight="700"><tspan x="1979" dy="0">GND</tspan></text>
+<rect x="1580" y="307" width="330" height="54" rx="8" fill="#f3ebf9" stroke="#8e44ad" stroke-width="1.8"/>
+<circle cx="1607" cy="334" r="17" fill="#fff" stroke="#8e44ad" stroke-width="2"/>
+<text x="1607" y="339" font-size="14" fill="#8e44ad" text-anchor="middle" font-weight="700"><tspan x="1607" dy="0">5</tspan></text>
+<text x="1634" y="340" font-size="14" fill="#111" text-anchor="start" font-weight="700"><tspan x="1634" dy="0">CANH</tspan></text>
+<rect x="1925" y="307" width="330" height="54" rx="8" fill="#f3ebf9" stroke="#8e44ad" stroke-width="1.8"/>
+<circle cx="1952" cy="334" r="17" fill="#fff" stroke="#8e44ad" stroke-width="2"/>
+<text x="1952" y="339" font-size="14" fill="#8e44ad" text-anchor="middle" font-weight="700"><tspan x="1952" dy="0">6</tspan></text>
+<text x="1979" y="340" font-size="14" fill="#111" text-anchor="start" font-weight="700"><tspan x="1979" dy="0">CANL</tspan></text>
+<rect x="1580" y="373" width="330" height="54" rx="8" fill="#fdecea" stroke="#d62728" stroke-width="1.8"/>
+<circle cx="1607" cy="400" r="17" fill="#fff" stroke="#d62728" stroke-width="2"/>
+<text x="1607" y="405" font-size="14" fill="#d62728" text-anchor="middle" font-weight="700"><tspan x="1607" dy="0">7</tspan></text>
+<text x="1634" y="406" font-size="14" fill="#111" text-anchor="start" font-weight="700"><tspan x="1634" dy="0">12V_ECU (công tắc)</tspan></text>
+<rect x="1925" y="373" width="330" height="54" rx="8" fill="#eeeeee" stroke="#444444" stroke-width="1.8"/>
+<circle cx="1952" cy="400" r="17" fill="#fff" stroke="#444444" stroke-width="2"/>
+<text x="1952" y="405" font-size="14" fill="#444444" text-anchor="middle" font-weight="700"><tspan x="1952" dy="0">8</tspan></text>
+<text x="1979" y="406" font-size="14" fill="#111" text-anchor="start" font-weight="700"><tspan x="1979" dy="0">GND</tspan></text>
+<rect x="1580" y="439" width="330" height="54" rx="8" fill="#f3ebf9" stroke="#8e44ad" stroke-width="1.8"/>
+<circle cx="1607" cy="466" r="17" fill="#fff" stroke="#8e44ad" stroke-width="2"/>
+<text x="1607" y="471" font-size="14" fill="#8e44ad" text-anchor="middle" font-weight="700"><tspan x="1607" dy="0">9</tspan></text>
+<text x="1634" y="472" font-size="14" fill="#111" text-anchor="start" font-weight="700"><tspan x="1634" dy="0">ECU_BOOT</tspan></text>
+<rect x="1925" y="439" width="330" height="54" rx="8" fill="#f3ebf9" stroke="#8e44ad" stroke-width="1.8"/>
+<circle cx="1952" cy="466" r="17" fill="#fff" stroke="#8e44ad" stroke-width="2"/>
+<text x="1952" y="471" font-size="14" fill="#8e44ad" text-anchor="middle" font-weight="700"><tspan x="1952" dy="0">10</tspan></text>
+<text x="1979" y="472" font-size="14" fill="#111" text-anchor="start" font-weight="700"><tspan x="1979" dy="0">ECU_RST</tspan></text>
+<rect x="1580" y="505" width="330" height="54" rx="8" fill="#f3ebf9" stroke="#8e44ad" stroke-width="1.8"/>
+<circle cx="1607" cy="532" r="17" fill="#fff" stroke="#8e44ad" stroke-width="2"/>
+<text x="1607" y="537" font-size="14" fill="#8e44ad" text-anchor="middle" font-weight="700"><tspan x="1607" dy="0">11</tspan></text>
+<text x="1634" y="538" font-size="14" fill="#111" text-anchor="start" font-weight="700"><tspan x="1634" dy="0">ECU_UART_TX</tspan></text>
+<rect x="1925" y="505" width="330" height="54" rx="8" fill="#f3ebf9" stroke="#8e44ad" stroke-width="1.8"/>
+<circle cx="1952" cy="532" r="17" fill="#fff" stroke="#8e44ad" stroke-width="2"/>
+<text x="1952" y="537" font-size="14" fill="#8e44ad" text-anchor="middle" font-weight="700"><tspan x="1952" dy="0">12</tspan></text>
+<text x="1979" y="538" font-size="14" fill="#111" text-anchor="start" font-weight="700"><tspan x="1979" dy="0">ECU_UART_RX</tspan></text>
+<text x="1580" y="595" font-size="12.5" fill="#a33" text-anchor="start" font-weight="700"><tspan x="1580" dy="0">Dùng TRÊN XE (5 dây): chân 1, 2, 3, 5, 6</tspan></text>
+<text x="1580" y="615" font-size="12.5" fill="#a33" text-anchor="start" font-weight="700"><tspan x="1580" dy="0">Chỉ dùng khi ĐỌC/GHI TRÊN BÀN: chân 7, 8, 9, 10, 11, 12</tspan></text>
+<text x="1580" y="660" font-size="14" fill="#111" text-anchor="start" font-weight="700"><tspan x="1580" dy="0">Bộ dây theo trường hợp:</tspan></text>
+<rect x="1580" y="680" width="675" height="30" rx="4" fill="#fff" stroke="#ddd" stroke-width="1"/>
+<text x="1592" y="700" font-size="12.5" fill="#111" text-anchor="start" font-weight="700"><tspan x="1592" dy="0">Xe dùng K-line</tspan></text>
+<text x="1770" y="700" font-size="12" fill="#333" text-anchor="start"><tspan x="1770" dy="0">chân 1, 2, 3</tspan></text>
+<rect x="1580" y="714" width="675" height="30" rx="4" fill="#f6f6f6" stroke="#ddd" stroke-width="1"/>
+<text x="1592" y="734" font-size="12.5" fill="#111" text-anchor="start" font-weight="700"><tspan x="1592" dy="0">Xe dùng CAN</tspan></text>
+<text x="1770" y="734" font-size="12" fill="#333" text-anchor="start"><tspan x="1770" dy="0">chân 1, 2, 5, 6</tspan></text>
+<rect x="1580" y="748" width="675" height="30" rx="4" fill="#fff" stroke="#ddd" stroke-width="1"/>
+<text x="1592" y="768" font-size="12.5" fill="#111" text-anchor="start" font-weight="700"><tspan x="1592" dy="0">Đọc/ghi ECU trên bàn</tspan></text>
+<text x="1770" y="768" font-size="12" fill="#333" text-anchor="start"><tspan x="1770" dy="0">1 (nguồn bàn), 2, 4, 8 (GND), 7, 9–12 (+3, 5, 6)</tspan></text>
+<rect x="1580" y="782" width="675" height="30" rx="4" fill="#f6f6f6" stroke="#ddd" stroke-width="1"/>
+<text x="1592" y="802" font-size="12.5" fill="#111" text-anchor="start" font-weight="700"><tspan x="1592" dy="0">Lưu ý</tspan></text>
+<text x="1770" y="802" font-size="12" fill="#333" text-anchor="start"><tspan x="1770" dy="0">Trên xe KHÔNG cắm chân 7 (ECU đã có nguồn xe).</tspan></text>
+<text x="1580" y="850" font-size="14" fill="#111" text-anchor="start" font-weight="700"><tspan x="1580" dy="0">GPIO dùng cho khối ECU</tspan></text>
+<rect x="1580" y="870" width="675" height="30" rx="4" fill="#fff" stroke="#ddd" stroke-width="1"/>
+<text x="1592" y="890" font-size="12.5" fill="#0a8f8f" text-anchor="start" font-weight="700"><tspan x="1592" dy="0">GPIO40</tspan></text>
+<text x="1680" y="890" font-size="12.5" fill="#111" text-anchor="start" font-weight="700"><tspan x="1680" dy="0">ECU_PWR_EN</tspan></text>
+<text x="1830" y="890" font-size="12" fill="#333" text-anchor="start"><tspan x="1830" dy="0">cao = cấp nguồn ECU (Q9 mở)</tspan></text>
+<rect x="1580" y="902" width="675" height="30" rx="4" fill="#f6f6f6" stroke="#ddd" stroke-width="1"/>
+<text x="1592" y="922" font-size="12.5" fill="#0a8f8f" text-anchor="start" font-weight="700"><tspan x="1592" dy="0">GPIO41</tspan></text>
+<text x="1680" y="922" font-size="12.5" fill="#111" text-anchor="start" font-weight="700"><tspan x="1680" dy="0">ECU_BOOT</tspan></text>
+<text x="1830" y="922" font-size="12" fill="#333" text-anchor="start"><tspan x="1830" dy="0">cao = kéo BOOT/MODE xuống GND</tspan></text>
+<rect x="1580" y="934" width="675" height="30" rx="4" fill="#fff" stroke="#ddd" stroke-width="1"/>
+<text x="1592" y="954" font-size="12.5" fill="#0a8f8f" text-anchor="start" font-weight="700"><tspan x="1592" dy="0">GPIO42</tspan></text>
+<text x="1680" y="954" font-size="12.5" fill="#111" text-anchor="start" font-weight="700"><tspan x="1680" dy="0">ECU_RST</tspan></text>
+<text x="1830" y="954" font-size="12" fill="#333" text-anchor="start"><tspan x="1830" dy="0">cao = kéo RESET xuống GND</tspan></text>
+<rect x="1580" y="966" width="675" height="30" rx="4" fill="#f6f6f6" stroke="#ddd" stroke-width="1"/>
+<text x="1592" y="986" font-size="12.5" fill="#0a8f8f" text-anchor="start" font-weight="700"><tspan x="1592" dy="0">GPIO48</tspan></text>
+<text x="1680" y="986" font-size="12.5" fill="#111" text-anchor="start" font-weight="700"><tspan x="1680" dy="0">ECU_UART_TX</tspan></text>
+<text x="1830" y="986" font-size="12" fill="#333" text-anchor="start"><tspan x="1830" dy="0">ESP32 → ECU (qua BSS138)</tspan></text>
+<rect x="1580" y="998" width="675" height="30" rx="4" fill="#fff" stroke="#ddd" stroke-width="1"/>
+<text x="1592" y="1018" font-size="12.5" fill="#0a8f8f" text-anchor="start" font-weight="700"><tspan x="1592" dy="0">GPIO3</tspan></text>
+<text x="1680" y="1018" font-size="12.5" fill="#111" text-anchor="start" font-weight="700"><tspan x="1680" dy="0">ECU_UART_RX</tspan></text>
+<text x="1830" y="1018" font-size="12" fill="#333" text-anchor="start"><tspan x="1830" dy="0">ECU → ESP32 (qua BSS138 + R57)</tspan></text>
+<rect x="1580" y="1030" width="675" height="30" rx="4" fill="#f6f6f6" stroke="#ddd" stroke-width="1"/>
+<text x="1592" y="1050" font-size="12.5" fill="#0a8f8f" text-anchor="start" font-weight="700"><tspan x="1592" dy="0">GPIO6/7</tspan></text>
+<text x="1680" y="1050" font-size="12.5" fill="#111" text-anchor="start" font-weight="700"><tspan x="1680" dy="0">I2C</tspan></text>
+<text x="1830" y="1050" font-size="12" fill="#333" text-anchor="start"><tspan x="1830" dy="0">INA219 0x40, AT24C02 0x50</tspan></text>
+<text x="1580" y="1090" font-size="14" fill="#111" text-anchor="start" font-weight="700"><tspan x="1580" dy="0">Thay đổi trên mạch cũ</tspan></text>
+<text x="1592" y="1118" font-size="12.5" fill="#333" text-anchor="start"><tspan x="1592" dy="0">•  F1: 1.5A → 3A/32V slow-blow (để đủ cho ECU)</tspan></text>
+<text x="1592" y="1144" font-size="12.5" fill="#333" text-anchor="start"><tspan x="1592" dy="0">•  CAN: R3 120Ω → đổi thành cầu hàn (mặc định hở)</tspan></text>
+<text x="1592" y="1170" font-size="12.5" fill="#333" text-anchor="start"><tspan x="1592" dy="0">•  Giữ nguyên D4 TVS, D5 SS510 (5A), LM2596 và phần còn lại</tspan></text>
+<text x="1592" y="1196" font-size="12.5" fill="#333" text-anchor="start"><tspan x="1592" dy="0">•  Thêm nhãn 12V_ECU, IN+, IN−, VREF, ECU_BOOT, ECU_RST trong EasyEDA</tspan></text>
+<text x="1580" y="1250" font-size="12.5" fill="#a33" text-anchor="start" font-weight="700"><tspan x="1580" dy="0">Sau khi nối xong: chạy ERC, kiểm tra không còn net 1 chân.</tspan></text>
+<rect x="40" y="1740" width="2220" height="32" rx="2" fill="#e8e8e8" stroke="#ddd" stroke-width="1"/>
+<text x="48" y="1761" font-size="13" fill="#111" text-anchor="start" font-weight="700"><tspan x="48" dy="0">Ref</tspan></text>
+<text x="208" y="1761" font-size="13" fill="#111" text-anchor="start" font-weight="700"><tspan x="208" dy="0">Linh kiện</tspan></text>
+<text x="528" y="1761" font-size="13" fill="#111" text-anchor="start" font-weight="700"><tspan x="528" dy="0">Giá trị / gói</tspan></text>
+<text x="988" y="1761" font-size="13" fill="#111" text-anchor="start" font-weight="700"><tspan x="988" dy="0">Chức năng</tspan></text>
+<rect x="40" y="1772" width="2220" height="32" rx="2" fill="#fff" stroke="#ddd" stroke-width="1"/>
+<text x="48" y="1793" font-size="13" fill="#111" text-anchor="start" font-weight="700"><tspan x="48" dy="0">D10</tspan></text>
+<text x="208" y="1793" font-size="13" fill="#111" text-anchor="start"><tspan x="208" dy="0">SS510 (SMA)</tspan></text>
+<text x="528" y="1793" font-size="13" fill="#111" text-anchor="start"><tspan x="528" dy="0">Schottky 100V 5A</tspan></text>
+<text x="988" y="1793" font-size="13" fill="#111" text-anchor="start"><tspan x="988" dy="0">chống đảo cực nhánh ECU</tspan></text>
+<rect x="40" y="1804" width="2220" height="32" rx="2" fill="#f6f6f6" stroke="#ddd" stroke-width="1"/>
+<text x="48" y="1825" font-size="13" fill="#111" text-anchor="start" font-weight="700"><tspan x="48" dy="0">Q9</tspan></text>
+<text x="208" y="1825" font-size="13" fill="#111" text-anchor="start"><tspan x="208" dy="0">AO4407A</tspan></text>
+<text x="528" y="1825" font-size="13" fill="#111" text-anchor="start"><tspan x="528" dy="0">P-MOS 30V ~12A, SO-8</tspan></text>
+<text x="988" y="1825" font-size="13" fill="#111" text-anchor="start"><tspan x="988" dy="0">công tắc nguồn ECU (phía cao)</tspan></text>
+<rect x="40" y="1836" width="2220" height="32" rx="2" fill="#fff" stroke="#ddd" stroke-width="1"/>
+<text x="48" y="1857" font-size="13" fill="#111" text-anchor="start" font-weight="700"><tspan x="48" dy="0">Q10</tspan></text>
+<text x="208" y="1857" font-size="13" fill="#111" text-anchor="start"><tspan x="208" dy="0">2N7002</tspan></text>
+<text x="528" y="1857" font-size="13" fill="#111" text-anchor="start"><tspan x="528" dy="0">N-MOS, SOT-23</tspan></text>
+<text x="988" y="1857" font-size="13" fill="#111" text-anchor="start"><tspan x="988" dy="0">điều khiển gate Q9 từ GPIO40</tspan></text>
+<rect x="40" y="1868" width="2220" height="32" rx="2" fill="#f6f6f6" stroke="#ddd" stroke-width="1"/>
+<text x="48" y="1889" font-size="13" fill="#111" text-anchor="start" font-weight="700"><tspan x="48" dy="0">R40 / R41</tspan></text>
+<text x="208" y="1889" font-size="13" fill="#111" text-anchor="start"><tspan x="208" dy="0">100k / 10k</tspan></text>
+<text x="528" y="1889" font-size="13" fill="#111" text-anchor="start"><tspan x="528" dy="0">0603</tspan></text>
+<text x="988" y="1889" font-size="13" fill="#111" text-anchor="start"><tspan x="988" dy="0">kéo gate Q9 lên source / chia áp gate</tspan></text>
+<rect x="40" y="1900" width="2220" height="32" rx="2" fill="#fff" stroke="#ddd" stroke-width="1"/>
+<text x="48" y="1921" font-size="13" fill="#111" text-anchor="start" font-weight="700"><tspan x="48" dy="0">R42</tspan></text>
+<text x="208" y="1921" font-size="13" fill="#111" text-anchor="start"><tspan x="208" dy="0">100k</tspan></text>
+<text x="528" y="1921" font-size="13" fill="#111" text-anchor="start"><tspan x="528" dy="0">0603</tspan></text>
+<text x="988" y="1921" font-size="13" fill="#111" text-anchor="start"><tspan x="988" dy="0">kéo gate Q10 xuống (mặc định tắt)</tspan></text>
+<rect x="40" y="1932" width="2220" height="32" rx="2" fill="#f6f6f6" stroke="#ddd" stroke-width="1"/>
+<text x="48" y="1953" font-size="13" fill="#111" text-anchor="start" font-weight="700"><tspan x="48" dy="0">C30</tspan></text>
+<text x="208" y="1953" font-size="13" fill="#111" text-anchor="start"><tspan x="208" dy="0">47nF 50V</tspan></text>
+<text x="528" y="1953" font-size="13" fill="#111" text-anchor="start"><tspan x="528" dy="0">0603</tspan></text>
+<text x="988" y="1953" font-size="13" fill="#111" text-anchor="start"><tspan x="988" dy="0">mở mềm Q9</tspan></text>
+<rect x="40" y="1964" width="2220" height="32" rx="2" fill="#fff" stroke="#ddd" stroke-width="1"/>
+<text x="48" y="1985" font-size="13" fill="#111" text-anchor="start" font-weight="700"><tspan x="48" dy="0">R43</tspan></text>
+<text x="208" y="1985" font-size="13" fill="#111" text-anchor="start"><tspan x="208" dy="0">0.05Ω 1W</tspan></text>
+<text x="528" y="1985" font-size="13" fill="#111" text-anchor="start"><tspan x="528" dy="0">2512 hoặc 1206 (1W)</tspan></text>
+<text x="988" y="1985" font-size="13" fill="#111" text-anchor="start"><tspan x="988" dy="0">shunt đo dòng ECU</tspan></text>
+<rect x="40" y="1996" width="2220" height="32" rx="2" fill="#f6f6f6" stroke="#ddd" stroke-width="1"/>
+<text x="48" y="2017" font-size="13" fill="#111" text-anchor="start" font-weight="700"><tspan x="48" dy="0">U20</tspan></text>
+<text x="208" y="2017" font-size="13" fill="#111" text-anchor="start"><tspan x="208" dy="0">INA219</tspan></text>
+<text x="528" y="2017" font-size="13" fill="#111" text-anchor="start"><tspan x="528" dy="0">SOT-23-8 (hoặc module GY-219)</tspan></text>
+<text x="988" y="2017" font-size="13" fill="#111" text-anchor="start"><tspan x="988" dy="0">đo dòng và điện áp ECU, I2C 0x40</tspan></text>
+<rect x="40" y="2028" width="2220" height="32" rx="2" fill="#fff" stroke="#ddd" stroke-width="1"/>
+<text x="48" y="2049" font-size="13" fill="#111" text-anchor="start" font-weight="700"><tspan x="48" dy="0">F4</tspan></text>
+<text x="208" y="2049" font-size="13" fill="#111" text-anchor="start"><tspan x="208" dy="0">PTC 2A</tspan></text>
+<text x="528" y="2049" font-size="13" fill="#111" text-anchor="start"><tspan x="528" dy="0">1812</tspan></text>
+<text x="988" y="2049" font-size="13" fill="#111" text-anchor="start"><tspan x="988" dy="0">bảo vệ nhánh ECU (ngắt trước F1)</tspan></text>
+<rect x="40" y="2060" width="2220" height="32" rx="2" fill="#f6f6f6" stroke="#ddd" stroke-width="1"/>
+<text x="48" y="2081" font-size="13" fill="#111" text-anchor="start" font-weight="700"><tspan x="48" dy="0">R44</tspan></text>
+<text x="208" y="2081" font-size="13" fill="#111" text-anchor="start"><tspan x="208" dy="0">10k</tspan></text>
+<text x="528" y="2081" font-size="13" fill="#111" text-anchor="start"><tspan x="528" dy="0">0603</tspan></text>
+<text x="988" y="2081" font-size="13" fill="#111" text-anchor="start"><tspan x="988" dy="0">xả điện 12V_ECU khi tắt</tspan></text>
+<rect x="40" y="2092" width="2220" height="32" rx="2" fill="#fff" stroke="#ddd" stroke-width="1"/>
+<text x="48" y="2113" font-size="13" fill="#111" text-anchor="start" font-weight="700"><tspan x="48" dy="0">D11</tspan></text>
+<text x="208" y="2113" font-size="13" fill="#111" text-anchor="start"><tspan x="208" dy="0">SMBJ18CA (tuỳ chọn)</tspan></text>
+<text x="528" y="2113" font-size="13" fill="#111" text-anchor="start"><tspan x="528" dy="0">SMB</tspan></text>
+<text x="988" y="2113" font-size="13" fill="#111" text-anchor="start"><tspan x="988" dy="0">TVS cho 12V_ECU</tspan></text>
+<rect x="40" y="2124" width="2220" height="32" rx="2" fill="#f6f6f6" stroke="#ddd" stroke-width="1"/>
+<text x="48" y="2145" font-size="13" fill="#111" text-anchor="start" font-weight="700"><tspan x="48" dy="0">Q11, Q12</tspan></text>
+<text x="208" y="2145" font-size="13" fill="#111" text-anchor="start"><tspan x="208" dy="0">2N7002 ×2</tspan></text>
+<text x="528" y="2145" font-size="13" fill="#111" text-anchor="start"><tspan x="528" dy="0">SOT-23</tspan></text>
+<text x="988" y="2145" font-size="13" fill="#111" text-anchor="start"><tspan x="988" dy="0">open-drain ECU_BOOT, ECU_RST</tspan></text>
+<rect x="40" y="2156" width="2220" height="32" rx="2" fill="#fff" stroke="#ddd" stroke-width="1"/>
+<text x="48" y="2177" font-size="13" fill="#111" text-anchor="start" font-weight="700"><tspan x="48" dy="0">R45, R47</tspan></text>
+<text x="208" y="2177" font-size="13" fill="#111" text-anchor="start"><tspan x="208" dy="0">100k ×2</tspan></text>
+<text x="528" y="2177" font-size="13" fill="#111" text-anchor="start"><tspan x="528" dy="0">0603</tspan></text>
+<text x="988" y="2177" font-size="13" fill="#111" text-anchor="start"><tspan x="988" dy="0">kéo gate Q11, Q12 xuống</tspan></text>
+<rect x="40" y="2188" width="2220" height="32" rx="2" fill="#f6f6f6" stroke="#ddd" stroke-width="1"/>
+<text x="48" y="2209" font-size="13" fill="#111" text-anchor="start" font-weight="700"><tspan x="48" dy="0">R46, R48</tspan></text>
+<text x="208" y="2209" font-size="13" fill="#111" text-anchor="start"><tspan x="208" dy="0">100Ω ×2</tspan></text>
+<text x="528" y="2209" font-size="13" fill="#111" text-anchor="start"><tspan x="528" dy="0">0603</tspan></text>
+<text x="988" y="2209" font-size="13" fill="#111" text-anchor="start"><tspan x="988" dy="0">nối tiếp ra CN1.9, CN1.10</tspan></text>
+<rect x="40" y="2220" width="2220" height="32" rx="2" fill="#fff" stroke="#ddd" stroke-width="1"/>
+<text x="48" y="2241" font-size="13" fill="#111" text-anchor="start" font-weight="700"><tspan x="48" dy="0">R49, R50</tspan></text>
+<text x="208" y="2241" font-size="13" fill="#111" text-anchor="start"><tspan x="208" dy="0">4.7k ×2 (DNP)</tspan></text>
+<text x="528" y="2241" font-size="13" fill="#111" text-anchor="start"><tspan x="528" dy="0">0603</tspan></text>
+<text x="988" y="2241" font-size="13" fill="#111" text-anchor="start"><tspan x="988" dy="0">kéo lên tuỳ chọn BOOT/RST</tspan></text>
+<rect x="40" y="2252" width="2220" height="32" rx="2" fill="#f6f6f6" stroke="#ddd" stroke-width="1"/>
+<text x="48" y="2273" font-size="13" fill="#111" text-anchor="start" font-weight="700"><tspan x="48" dy="0">JP1, JP2, JP3</tspan></text>
+<text x="208" y="2273" font-size="13" fill="#111" text-anchor="start"><tspan x="208" dy="0">cầu hàn</tspan></text>
+<text x="528" y="2273" font-size="13" fill="#111" text-anchor="start"><tspan x="528" dy="0">2–3 vị trí</tspan></text>
+<text x="988" y="2273" font-size="13" fill="#111" text-anchor="start"><tspan x="988" dy="0">VREF; rail kéo lên BOOT; RST</tspan></text>
+<rect x="40" y="2284" width="2220" height="32" rx="2" fill="#fff" stroke="#ddd" stroke-width="1"/>
+<text x="48" y="2305" font-size="13" fill="#111" text-anchor="start" font-weight="700"><tspan x="48" dy="0">Q13, Q14</tspan></text>
+<text x="208" y="2305" font-size="13" fill="#111" text-anchor="start"><tspan x="208" dy="0">BSS138 ×2</tspan></text>
+<text x="528" y="2305" font-size="13" fill="#111" text-anchor="start"><tspan x="528" dy="0">SOT-23</tspan></text>
+<text x="988" y="2305" font-size="13" fill="#111" text-anchor="start"><tspan x="988" dy="0">dịch mức UART 3.3V ↔ VREF</tspan></text>
+<rect x="40" y="2316" width="2220" height="32" rx="2" fill="#f6f6f6" stroke="#ddd" stroke-width="1"/>
+<text x="48" y="2337" font-size="13" fill="#111" text-anchor="start" font-weight="700"><tspan x="48" dy="0">R51–R54</tspan></text>
+<text x="208" y="2337" font-size="13" fill="#111" text-anchor="start"><tspan x="208" dy="0">10k ×4</tspan></text>
+<text x="528" y="2337" font-size="13" fill="#111" text-anchor="start"><tspan x="528" dy="0">0603</tspan></text>
+<text x="988" y="2337" font-size="13" fill="#111" text-anchor="start"><tspan x="988" dy="0">pull-up dịch mức (3V3 / VREF)</tspan></text>
+<rect x="40" y="2348" width="2220" height="32" rx="2" fill="#fff" stroke="#ddd" stroke-width="1"/>
+<text x="48" y="2369" font-size="13" fill="#111" text-anchor="start" font-weight="700"><tspan x="48" dy="0">R55, R56</tspan></text>
+<text x="208" y="2369" font-size="13" fill="#111" text-anchor="start"><tspan x="208" dy="0">100Ω ×2</tspan></text>
+<text x="528" y="2369" font-size="13" fill="#111" text-anchor="start"><tspan x="528" dy="0">0603</tspan></text>
+<text x="988" y="2369" font-size="13" fill="#111" text-anchor="start"><tspan x="988" dy="0">nối tiếp UART ra CN1.11/12</tspan></text>
+<rect x="40" y="2380" width="2220" height="32" rx="2" fill="#f6f6f6" stroke="#ddd" stroke-width="1"/>
+<text x="48" y="2401" font-size="13" fill="#111" text-anchor="start" font-weight="700"><tspan x="48" dy="0">R57</tspan></text>
+<text x="208" y="2401" font-size="13" fill="#111" text-anchor="start"><tspan x="208" dy="0">10k</tspan></text>
+<text x="528" y="2401" font-size="13" fill="#111" text-anchor="start"><tspan x="528" dy="0">0603</tspan></text>
+<text x="988" y="2401" font-size="13" fill="#111" text-anchor="start"><tspan x="988" dy="0">nối tiếp GPIO3 (ECU_RX)</tspan></text>
+<rect x="40" y="2412" width="2220" height="32" rx="2" fill="#fff" stroke="#ddd" stroke-width="1"/>
+<text x="48" y="2433" font-size="13" fill="#111" text-anchor="start" font-weight="700"><tspan x="48" dy="0">F1 (đổi)</tspan></text>
+<text x="208" y="2433" font-size="13" fill="#111" text-anchor="start"><tspan x="208" dy="0">3A / 32V slow-blow</tspan></text>
+<text x="528" y="2433" font-size="13" fill="#111" text-anchor="start"><tspan x="528" dy="0">1206/1808</tspan></text>
+<text x="988" y="2433" font-size="13" fill="#111" text-anchor="start"><tspan x="988" dy="0">cầu chì chính (từ 1.5A)</tspan></text>
+<rect x="40" y="2444" width="2220" height="32" rx="2" fill="#f6f6f6" stroke="#ddd" stroke-width="1"/>
+<text x="48" y="2465" font-size="13" fill="#111" text-anchor="start" font-weight="700"><tspan x="48" dy="0">R3 (đổi)</tspan></text>
+<text x="208" y="2465" font-size="13" fill="#111" text-anchor="start"><tspan x="208" dy="0">cầu hàn</tspan></text>
+<text x="528" y="2465" font-size="13" fill="#111" text-anchor="start"><tspan x="528" dy="0"></tspan></text>
+<text x="988" y="2465" font-size="13" fill="#111" text-anchor="start"><tspan x="988" dy="0">thay điện trở CAN 120Ω</tspan></text>
+<rect x="40" y="2476" width="2220" height="32" rx="2" fill="#fff" stroke="#ddd" stroke-width="1"/>
+<text x="48" y="2497" font-size="13" fill="#111" text-anchor="start" font-weight="700"><tspan x="48" dy="0">CN1</tspan></text>
+<text x="208" y="2497" font-size="13" fill="#111" text-anchor="start"><tspan x="208" dy="0">2×6 2.54mm</tspan></text>
+<text x="528" y="2497" font-size="13" fill="#111" text-anchor="start"><tspan x="528" dy="0">X9555WR-2X06-6TV01 (đã có)</tspan></text>
+<text x="988" y="2497" font-size="13" fill="#111" text-anchor="start"><tspan x="988" dy="0">đầu nối ra xe/ECU</tspan></text></svg>
